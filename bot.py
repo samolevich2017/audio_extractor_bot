@@ -1,10 +1,10 @@
 from email import message
 import logging
 from pyexpat.errors import messages
-import config
+import classes.config as config
 from aiogram import Bot, Dispatcher, executor, types
 from classes import yt_extractor as yt
-from sqlighter import SQLighter
+from classes.sqlighter import SQLighter
 import os
 
 # configure logging
