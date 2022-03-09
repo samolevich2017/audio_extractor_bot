@@ -73,6 +73,7 @@ async def link_listener(message: types.Message):
         await message.answer("Прости, но что-то пошло не так... 😞")
         await message.answer(f"Сообщи пожалуйста об этом моему разработчику 👇 \n{config.BOT_OWNER}")
 
+# start the bot
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
