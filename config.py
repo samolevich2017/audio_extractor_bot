@@ -1,2 +1,2 @@
-BOT_TOKEN = ""
-BOT_OWNER = "https://t.me/samolevich_ivan"
+BOT_TOKEN = "5252355628:AAH_wSRRPaFeqK4Q1T6UUOpXXc4GZL9xloI"
+BOT_OWNER = "t.me/samolevich_ivan"
