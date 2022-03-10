@@ -12,7 +12,7 @@ class SQLighter:
     def get_users(self, sub_status = True):
         """Getting all bot users"""
         with self.connection:
-            self.cursor.execute("SELECT * FROM `users` WHERE `sub_status` = ?", (sub_status,)).fetchall()
+            return self.cursor.execute("SELECT * FROM `users` WHERE `sub_status` = ?", (sub_status,)).fetchall()
 
     def user_exists(self, user_id):
         """Checking - user already exists in db or not"""
