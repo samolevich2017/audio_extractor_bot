@@ -16,6 +16,8 @@ from classes.sqlighter import SQLighter
 import os
 import asyncio
 
+from utils.extfunctions import message_from_file
+
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
@@ -54,14 +56,14 @@ async def send_welcome(message: types.Message):
 @dp.message_handler(commands=['updates'])
 async def send_update_info(message: types.Message):
     # read the message about last updates from txt file
-    with open("last_upd.txt", "r", encoding='UTF-8') as file:
-        content = file.read()
-        
-        if(len(content) == 0): 
-            await bot.send_message(message.from_user.id, "К сожалению, не могу предоставить информацию 🥲")
-            return
+    content = message_from_file("last_upd.txt")
+    await bot.send_message(message.from_user.id, content, parse_mode='Markdown')
 
-        await bot.send_message(message.from_user.id, content, parse_mode='Markdown')
+# Function for /help command
+@dp.message_handler(commands=['help'])
+async def send_help(message: types.Message):
+    content = message_from_file("help.txt")
+    await bot.send_message(message.from_user.id, content, parse_mode='Markdown')
 
 # Function listener - listen to all messages and process these
 @dp.message_handler()
@@ -112,7 +114,7 @@ async def incorrect_message(message: types.Message):
     await message.reply("Я не знаю, что с этим делать 😐\nЯ просто напомню, что есть команда /help", parse_mode='Markdown')
 
 
-# TODO: create function for /help command
+
 
 # start the bot
 if __name__ == '__main__':

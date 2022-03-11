@@ -11,3 +11,13 @@ def deEmojify(text):
         u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
         "]+", flags = re.UNICODE)
     return regrex_pattern.sub(r'',text)
+
+# This function reads the file and returns its content
+def message_from_file(filename):
+    with open(filename, "r", encoding='UTF-8') as file:
+        content = file.read()
+        
+        if(len(content) == 0): 
+            content = "К сожалению, не могу предоставить информацию 🥲"
+
+        return content
